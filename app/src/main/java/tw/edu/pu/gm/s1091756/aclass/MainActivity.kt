@@ -13,17 +13,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
      lateinit var gDetector: GestureDetector
      var PictureNo:Int = 0  //目前顯示第幾張圖
-     var TotalPictures:Int = 6 //總共幾張圖片(假設僅顯示pu0-pu3)
+     var TotalPictures:Int = 6 //總共幾張圖片
 
      fun ShowPicture() {
-         /*
-         when (PictureNo) {
-             0 -> img.setImageResource(R.drawable.pu0)
-             1 -> img.setImageResource(R.drawable.pu1)
-             2 -> img.setImageResource(R.drawable.pu2)
-             3 -> img.setImageResource(R.drawable.pu3)
-         }
-         */
 
          when(PictureNo){
              0 -> txv.text = PictureNo.toString() + "靜宜體育館外"
@@ -59,6 +51,11 @@ import kotlinx.android.synthetic.main.activity_main.*
          return true
      }
       */
+
+     override fun onTouch(p0: View?, event: MotionEvent?): Boolean {
+         gDetector.onTouchEvent(event)
+         return true
+     }
 
      override fun onDown(p0: MotionEvent?): Boolean {
          //txv.text = "按下"
@@ -114,11 +111,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
      override fun onDoubleTapEvent(p0: MotionEvent?): Boolean {
          //txv.text = "連續點兩下"
-         return true
-     }
-
-     override fun onTouch(p0: View?, event: MotionEvent?): Boolean {
-         gDetector.onTouchEvent(event)
          return true
      }
 
